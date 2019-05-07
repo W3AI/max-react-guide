@@ -73,6 +73,8 @@ class App extends Component {
             style.backgroundColor = 'red';
         }
 
+        let classes = ['red', 'bold'].join(' ');
+
         return (
             <div className="App">
                 <h1>Hey, I'm a React App</h1>
