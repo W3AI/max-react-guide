@@ -3,10 +3,10 @@ import React, { Component } from 'react';
 import Person from './Person/Person';
 
 class Persons extends Component {
-    static getDerivedStateFromProps(props, state) {
-        console.log('[Persons.js] getDerivedStateFromProps');
-        return state;
-    }
+    // static getDerivedStateFromProps(props, state) {
+    //     console.log('[Persons.js] getDerivedStateFromProps');
+    //     return state;
+    // }
 
     shouldComponentUpdate(nextProps, nextState) {
         console.log('[Persons.js] shouldComponentUpdate')
@@ -14,11 +14,13 @@ class Persons extends Component {
     }
 
     getSnapshotBeforeUpdate(prevProps, prevState) {
-        console.log('[Persons.js] getSnapshotBeforeUpdate');
+        console.log('[Persons.js] getSnapshotBeforeUpdate');    
+        return { message: 'Snapshot!'};    // get snapshot (position of user scroll, etc) to pass to compDidUpdate
     }
 
-    componentDidUpdate() {
+    componentDidUpdate(prevProps, prevState, snapshot) {
         console.log('[Persons.js] componentDidUpdate');
+        console.log(snapshot);
     }
 
     render() {
