@@ -13,6 +13,10 @@ class Persons extends Component {
         return true;    // to compare current with next state and decide
     }
 
+    getSnapshotBeforeUpdate(prevProps, prevState) {
+        console.log('[Persons.js] getSnapshotBeforeUpdate');
+    }
+
     render() {
         console.log('[Persons.js] rendering...');
         return this.props.persons.map((person, index) => {
