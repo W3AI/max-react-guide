@@ -3,6 +3,15 @@ import React, { Component } from 'react';
 import Person from './Person/Person';
 
 class Persons extends Component {
+    static getDerivedStateFromProps(props, state) {
+        console.log('[Persons.js] getDerivedStateFromProps');
+        return state;
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        console.log('[Persons.js] shouldComponentUpdate')
+        return true;    // to compare current with next state and decide
+    }
 
     render() {
         console.log('[Persons.js] rendering...');
