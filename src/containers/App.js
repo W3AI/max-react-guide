@@ -17,7 +17,8 @@ class App extends Component {
             { id: 'adfvdv', name: 'Stephanie', age: 26 }
         ],
         otherState: 'some other value',
-        showPersons: false
+        showPersons: false,
+        showCockpit: true
     }
 
     static getDerivedStateFromProps(props, state) {
@@ -59,19 +60,19 @@ class App extends Component {
         const persons = [...this.state.persons];
         persons[personIndex] = person;
 
-        this.setState( {persons: persons} );
+        this.setState({ persons: persons });
     }
 
     deletePersonHandler = (personIndex) => {
         // const persons = this.state.persons.slice();     // make a copy of the current persons array
         const persons = [...this.state.persons];           // make a copy array using the spread operator ...
         persons.splice(personIndex, 1);     // Remove one element from the array
-        this.setState({persons: persons});  // Update the state with persons array - 1
+        this.setState({ persons: persons });  // Update the state with persons array - 1
     }
 
     togglePersonsHandler = () => {
         const doesShow = this.state.showPersons;
-        this.setState({showPersons: !doesShow});
+        this.setState({ showPersons: !doesShow });
     }
 
     render() {
@@ -79,19 +80,27 @@ class App extends Component {
         let persons = null;
 
         if (this.state.showPersons) {
-            persons = <Persons 
-                    persons={this.state.persons}
-                    clicked={this.deletePersonHandler}
-                    changed={this.nameChangedHandler} />;
+            persons = <Persons
+                persons={this.state.persons}
+                clicked={this.deletePersonHandler}
+                changed={this.nameChangedHandler} />;
         }
 
         return (
             <div className={classes.App}>
-                <Cockpit 
-                    title={this.props.appTitle}
-                    showPersons={this.state.showPersons} 
-                    persons={this.state.persons}
-                    clicked={this.togglePersonsHandler} />
+                <button onClick={() => {
+                    this.setState({
+                        showCockpit: false
+                    })
+                }}>Remove Cockpit</button>
+                {this.state.showCockpit ? (
+                    <Cockpit
+                        title={this.props.appTitle}
+                        showPersons={this.state.showPersons}
+                        persons={this.state.persons}
+                        clicked={this.togglePersonsHandler}
+                    />
+                ) : null}
                 {persons}
             </div>
         );
