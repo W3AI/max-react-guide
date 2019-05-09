@@ -1,17 +1,19 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 import classes from './Cockpit.css';
 
 // const cockpit = ( props ) => {       // this one didn't work as per Max
 
 function Cockpit( props ) {
+    const toggleBtnRef = useRef(null);
 
     useEffect(() => {
         console.log('[Cockpit.js] useEffect');
         // Http request...
-        setTimeout(() => {
-            alert('Saved data to cloud!');
-        }, 1000);
+        // setTimeout(() => {
+        //     alert('Saved data to cloud!');
+        // }, 1000);
+        toggleBtnRef.current.click();
         return () => {
             console.log('[Cockpit.js] cleanup work in useEffect');
         };
@@ -48,9 +50,9 @@ function Cockpit( props ) {
                 &lt;ai team/&gt; 	&#10038;
                 &lt;ai code/&gt;
                 </p>
-            <button
+            <button ref={toggleBtnRef}
                 className={btnClass}
-                onClick={props.clicked}>Toggle Persons</button>
+                onClick={props.clicked}>Toggle skills Mart</button>
         </div>
     );
 };
