@@ -34,7 +34,7 @@ class App extends Component {
         console.log('[App.js] componentDidMount');
     }
 
-    shouldComponentUpdate(nextProps, nextState) {
+    shouldComponentUpdate(nextProps, nextState) { // use for Optimization / conditional execution
         console.log('[App.js] shouldComponentUpdate');
         return true;
     }
