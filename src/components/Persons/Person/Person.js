@@ -24,6 +24,7 @@ class Person extends Component {
     }
 }
 
+// !!! Mainly for component libraries to share with other developers
 // Can add func with definition of types of args and output
 Person.propTypes = {
     click: Proptypes.func,
