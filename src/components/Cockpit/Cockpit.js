@@ -12,7 +12,8 @@ function Cockpit( props ) {
         setTimeout(() => {
             alert('Saved data to cloud!');
         }, 1000);
-    }, [props.persons]);        // useEffect to execute only when props.persons change !!!
+    }, []);        // useEffect to execute only when [props.persons] change !!!
+                                // or if array empty [] it will exec only at first time rendering
 
     // useEffect();
 
