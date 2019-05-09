@@ -16,9 +16,15 @@ function Cockpit( props ) {
             console.log('[Cockpit.js] cleanup work in useEffect');
         };
     }, []);        // useEffect to execute only when [props.persons] change !!!
-                                // or if array empty [] it will exec only at first time rendering
+                // e.g.: use [props.predecessor1, props.predecessor2, ...]
+                // or if array empty [] it will exec only at first time rendering
 
-    // useEffect();
+    useEffect(() => { // w/o 2nd arg it will run for every update cycle!!! - eg: trigger Next task/comm, etc
+        console.log('[Cockpit.js] 2nd useEffect');
+        return () => {
+            console.log('[Cockpit.js] cleanup work in 2nd useEffect');
+        };
+    });
 
     const assignedClasses = [];
     let btnClass = '';
