@@ -21,7 +21,8 @@ class App extends Component {
         otherState: 'some other value',
         showPersons: false,
         showCockpit: true,
-        changecounter: 0
+        changecounter: 0,
+        authenticated: false
     }
 
     static getDerivedStateFromProps(props, state) {
@@ -76,12 +77,16 @@ class App extends Component {
         const persons = [...this.state.persons];           // make a copy array using the spread operator ...
         persons.splice(personIndex, 1);     // Remove one element from the array
         this.setState({ persons: persons });  // Update the state with persons array - 1
-    }
+    };
 
     togglePersonsHandler = () => {
         const doesShow = this.state.showPersons;
         this.setState({ showPersons: !doesShow });
-    }
+    };
+
+    loginHandler = () => {
+        this.setState({authenticated: true});
+    };
 
     render() {
         console.log('[App.js] render');
@@ -91,7 +96,9 @@ class App extends Component {
             persons = <Persons
                 persons={this.state.persons}
                 clicked={this.deletePersonHandler}
-                changed={this.nameChangedHandler} />;
+                changed={this.nameChangedHandler} 
+                isAuthenticated={this.state.authenticated}
+            />;
         }
 
         return (
@@ -107,6 +114,7 @@ class App extends Component {
                         showPersons={this.state.showPersons}
                         personsLength={this.state.persons.length}
                         clicked={this.togglePersonsHandler}
+                        login={this.loginHandler}
                     />
                 ) : null}
                 {persons}
