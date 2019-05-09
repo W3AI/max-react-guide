@@ -30,7 +30,7 @@ class Persons extends Component {
         console.log(snapshot);
     }
 
-    componentWillUnmount() {
+    componentWillUnmount() {    // for cleanup before component is removed
         console.log('[Persons.js] componentWillUnmount');
     }
 

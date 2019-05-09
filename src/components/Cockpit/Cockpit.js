@@ -12,6 +12,9 @@ function Cockpit( props ) {
         setTimeout(() => {
             alert('Saved data to cloud!');
         }, 1000);
+        return () => {
+            console.log('[Cockpit.js] cleanup work in useEffect');
+        };
     }, []);        // useEffect to execute only when [props.persons] change !!!
                                 // or if array empty [] it will exec only at first time rendering
 
