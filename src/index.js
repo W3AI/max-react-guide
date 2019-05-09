@@ -4,5 +4,5 @@ import './index.css';
 import App from './containers/App';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App appTitle="3ai sMart: skills Market" />, document.getElementById('root'));
+ReactDOM.render(<App appTitle="w3ai - sMart reminder" />, document.getElementById('root'));
 registerServiceWorker();
