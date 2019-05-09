@@ -44,9 +44,9 @@ function Cockpit( props ) {
             <h1>{props.title}</h1>
             <p className={assignedClasses.join(' ')} >
                 ToDo: 3ai - 
+                &lt;ai data/&gt; 	&#10038;
                 &lt;ai team/&gt; 	&#10038;
-                &lt;ai code/&gt; 	&#10038;
-                &lt;ai data/&gt;
+                &lt;ai code/&gt;
                 </p>
             <button
                 className={btnClass}
